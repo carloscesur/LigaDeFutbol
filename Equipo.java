@@ -1,4 +1,3 @@
-
 public class Equipo {
 	private String nombre;
 	private String club;
@@ -63,6 +62,4 @@ public class Equipo {
 				toStringJugadores(this.jugadores);
 		
 	}
-
-
 }

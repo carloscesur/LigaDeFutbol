@@ -1,12 +1,9 @@
-
-
 public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		//Crear una Lista de Equipo
-		
 		int edad = (int) Math.floor(Math.random()*15)+4;
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
@@ -16,10 +13,6 @@ public class Principal {
 		for (Equipo e: listaEquipos) {
 			System.out.println(e.getNombre());
 		}
-		
-
-		
-
 
 	}
 
@@ -121,8 +114,6 @@ public class Principal {
 			//Meter el equipo en el array de equipos
 			
 			listaEquipos[i]=equipo;
-			
-			
 		
 		}
 		return listaEquipos;

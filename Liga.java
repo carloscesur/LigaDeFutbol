@@ -1,4 +1,3 @@
-
 public class Liga {
 	
 	private String nombre;

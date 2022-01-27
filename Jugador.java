@@ -1,4 +1,3 @@
-
 public final class Jugador extends Persona{
 	private String categoria;
 	private String posicion;
@@ -72,6 +71,4 @@ public final class Jugador extends Persona{
 				"Equipo: "+equipo.getNombre()+"\n"+
 				"Dorsal: "+dorsal+" Posición: "+posicion+"\n";
 	}
-
-	
 }
