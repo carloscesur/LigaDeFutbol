@@ -154,4 +154,15 @@ public class Principal {
 		
 		return entrenador;
 	}
+
+	private static  Clasificacion[] crearClasificacion(){
+
+		//Equipo [] listaEquipos= new Equipo[numeroEquipos];
+
+		//for (int i=0; i<numeroEquipos; i++) {
+			//Creamos Equipo
+			//Equipo equipo = new Equipo();
+
+
+	}
 }
