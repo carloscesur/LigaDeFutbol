@@ -56,10 +56,10 @@ public class Principal {
 	public static void imprimirMenu() {
 		System.out.println("***************************************");
 		System.out.println("*********** Menú Principal ************");
-		System.out.println("1.- Ver la clasificación actual *******");
-		System.out.println("2.- Ver el calendario *****************");
-		System.out.println("3.- Introducir nuevos resultados ******");
-		System.out.println("4.- Salir de la aplicacion ************");
+		System.out.println("*1.- Ver la clasificación actual      *");
+		System.out.println("*2.- Ver el calendario                *");
+		System.out.println("*3.- Introducir nuevos resultados     *");
+		System.out.println("*4.- Salir de la aplicacion           *");
 		System.out.println("***************************************");
 		System.out.println("Introduzca una opción: ");			
 	}
