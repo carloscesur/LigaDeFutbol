@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -216,7 +218,6 @@ public class Principal {
 		//for (int i=0; i<numeroEquipos; i++) {
 			//Creamos Equipo
 			//Equipo equipo = new Equipo();
-	}
 	
 	private static void clasificacion(int opcion) {
 		//Metodo para mostrar la clasificacion
