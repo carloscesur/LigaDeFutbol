@@ -13,6 +13,16 @@ public class Principal {
 		for (Equipo e: listaEquipos) {
 			System.out.println(e.getNombre());
 		}
+
+		//Numero de Jornadas (Solo ida por ahora)
+		int numeroJornadas = numeroEquipos - 1;
+
+		//Numero partidos Jugados
+		int partidosJugados = (int) Math.floor(Math.random()*numeroJornadas); //Genera partidos entre 0 y el número de jornadas, que sería el número máximo de partidos.
+
+		if (partidosJugados == 0){ //Para el caso de que partidosJugados sea 0 sumarle 1 para que siempre al menos hayan jugado un partido
+			partidosJugados ++;
+		}
 		
 		//Menu de opciones disponibles
 		int opcion=1;
