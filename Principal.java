@@ -217,6 +217,39 @@ public class Principal {
 
 		return entrenador;
 	}
+	
+		private static Arbitro crearArbitro() {
+		//Listado de Nombres, Apellidos, Posiciones para generador random
+		String[] nombres = {"Antonio", "Pepito", "Alejandra", "Ismael", "Hugo", "Oliver","Kalesi",
+				"Ingrid","Astrid","Indira","Jenny","Jessi","Vane","Joel","Bruno",
+				"Sasha","Billie","Masha","Pingu"};
+		String[] apellidos = {"Messi", "Vinicius", "Cristiano", "Ronaldo", "PiquÃ©","Bale (lesionado)",
+				"Amunike","N'kono","ButragueÃ±o","SanchÃ­s","Neymar","Batistuta","Maradona",
+				"PelÃ©","Beckenbauer"};
+		
+		Arbitro arbitro = new Arbitro();
+
+		//Nombre
+		int numero = (int) Math.floor(Math.random()*nombres.length);
+		String nombre = nombres[numero];
+		arbitro.setNombre(nombre);
+
+		//Apellidos
+		numero = (int) Math.floor(Math.random()*apellidos.length);
+		String apellido1 = apellidos[numero];
+		numero = (int) Math.floor(Math.random()*apellidos.length);
+		String apellido2 = apellidos[numero];
+		arbitro.setApellidos(apellido1+" "+apellido2);		
+
+		//Edad
+		int edad = (int) Math.floor(Math.random()*47)+18;
+		arbitro.setEdad(edad);
+		//Licencia
+		int licencia = (int) Math.floor(Math.random()*100000);
+		arbitro.setLicencia(licencia);
+
+		return arbitro;
+	}
 
 	private static Partido[] generarPartidos(int numeroJornadas, int numeroEquipos){
 
