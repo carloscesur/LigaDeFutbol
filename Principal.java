@@ -224,7 +224,7 @@ public class Principal {
 				"Ingrid","Astrid","Indira","Jenny","Jessi","Vane","Joel","Bruno",
 				"Sasha","Billie","Masha","Pingu"};
 		String[] apellidos = {"Messi", "Vinicius", "Cristiano", "Ronaldo", "PiquÃ©","Bale (lesionado)",
-				"Amunike","N'kono","ButragueÃ±o","SanchÃ­s","Neymar","Batistuta","Maradona",
+				"Amunike","N'kono","ButragueÃ±o","Sanchis","Neymar","Batistuta","Maradona",
 				"PelÃ©","Beckenbauer"};
 		
 		Arbitro arbitro = new Arbitro();
