@@ -1,3 +1,5 @@
 Cuaderno Bitácora
 
 27/01 Carlos ha creado un repositorio GitHub, la documentación y la clase calendario.
+03/02 Roberto creó las base del menú para el programa
+08/02 Terminado algoritmo de cruces en el emparejamiento para idea feliz. Falta implementar en el proyecto y plantear problemas como equipos impares u otros imconvenientes.
