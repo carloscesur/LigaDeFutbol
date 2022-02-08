@@ -8,6 +8,7 @@ public class Principal {
 		//Crear una Lista de Equipo
 		int edad = (int) Math.floor(Math.random()*15)+4;
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
+		int numeroArbitros= (numeroEquipos/2)+1;//Uno por partido más uno de reserva
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
 
 		//Numero de Jornadas (Solo ida por ahora)
