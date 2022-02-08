@@ -1,37 +1,60 @@
-import java.lang.Math;
 public class Partido {
-    
 
-    
-    public Partido(Jugador[] listaEquipos, int teams, int round){
+    //ATRIBUTOS
+    private int numeroPartido;
+    private String equipoLocal;
+    private String equipoVisitante;
+    private String equipoDescansando;
+    private int golesLocal;
+    private int golesVisitante;
 
-        teams = listaEquipos.length;
-        round = listaEquipos.length-1;
+    //METODOS
+    public int golesLocal(){
+        this.golesLocal = (int) Math.floor(Math.random()*10);
+        return golesLocal;
+    }
+    public int golesVisitane(){
+        this.golesVisitante = (int) Math.floor(Math.random()*10);
+        return golesVisitante;
+    }
 
-        public static void main(int teams, int round) {
-            if (((teams%2 != 0) && (round != teams - 1))||(teams <= 0))
-                throw new IllegalArgumentException();
-            int[] cycle = new int[teams];
-            int n = teams /2;
-            for (int i = 0; i < n; i++) {				
-                cycle[i] = i + 1;
-                cycle[teams - i - 1] = cycle[i] + n;
-            }			
-                    
-            for(int d = 1; d <= round; d++) {
-                System.out.println(String.format("Round %d", d));
-                for (int i = 0; i < n; i++) {					
-                    System.out.println(String.format("team %d - team %d",cycle[i],cycle[teams - i - 1]));					 
-                }	
-                int temp = cycle[1];
-                for (int i = 1; i < teams - 1; i++) {
-                    int pr = cycle[i+1];
-                    cycle[i+1] = temp;
-                    temp = pr;
-                }
-                cycle[1] = temp;		
-            }
-        }
-        }
+    //Setters
+    public void setNumeroPartido(int numeroPartido) {
+        this.numeroPartido = numeroPartido;
+    }
+    public void setEquipoLocal(String equipoLocal) {
+        this.equipoLocal = equipoLocal;
+    }
+    public void setEquipoVisitante(String equipoVisitante) {
+        this.equipoVisitante = equipoVisitante;
+    }
+    public void setEquipoDescansando(String equipoDescansando) {
+        this.equipoDescansando = equipoDescansando;
+    }
+    public void setGolesLocal(int golesLocal) {
+        this.golesLocal = golesLocal;
+    }
+    public void setGolesVisitante(int golesVisitante) {
+        this.golesVisitante = golesVisitante;
+    }
 
+    //Getters
+    public int getNumeroPartido() {
+        return numeroPartido;
+    }
+    public String getEquipoLocal() {
+        return equipoLocal;
+    }
+    public String getEquipoVisitante() {
+        return equipoVisitante;
+    }
+    public String getEquipoDescansando() {
+        return equipoDescansando;
+    }
+    public int getGolesLocal() {
+        return golesLocal;
+    }
+    public int getGolesVisitante() {
+        return golesVisitante;
+    }
 }

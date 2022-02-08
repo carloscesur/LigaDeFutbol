@@ -4,57 +4,64 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		//Crear una Lista de Equipo
 		int edad = (int) Math.floor(Math.random()*15)+4;
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
-		
+
+		//Numero de Jornadas (Solo ida por ahora)
+		int numeroJornadas;
+
+		if (numeroEquipos%2==0){
+			numeroJornadas = numeroEquipos - 1;
+		}else{
+			numeroJornadas = numeroEquipos;
+		}
+
+		//Crear lista de todos los partidos
+		Partido[] listaPartidos = generarPartidos(numeroJornadas, numeroEquipos);
+
 		//Imprimimos los equipos
 		System.out.println("Numero de equipos: "+numeroEquipos);
 		for (Equipo e: listaEquipos) {
 			System.out.println(e.getNombre());
 		}
 
-		//Numero de Jornadas (Solo ida por ahora)
-		int numeroJornadas = numeroEquipos - 1;
-
-		//Numero partidos Jugados
-		int partidosJugados = (int) Math.floor(Math.random()*numeroJornadas); //Genera partidos entre 0 y el número de jornadas, que sería el número máximo de partidos.
-
-		if (partidosJugados == 0){ //Para el caso de que partidosJugados sea 0 sumarle 1 para que siempre al menos hayan jugado un partido
-			partidosJugados ++;
+		//Imprimir partidos
+		for (Partido e: listaPartidos){
+			System.out.println(e.getGolesLocal()+" goles del equipo Local y "+e.getGolesVisitante()+" goles del quipo visitante.");
 		}
-		
+
 		//Menu de opciones disponibles
 		int opcion=1;
-		while (opcion != 4) {			
+		while (opcion != 4) {
 
 			imprimirMenu ();
 
 			opcion= leerEntrada();
 			switch(opcion) {
-			case 1:
-				//Quitar este comentario cuando se implemente el codigo en clasificacion
-				//clasificacion();
-				break;
-			case 2:
-				//Quitar este comentario cuando se implemente el codigo en calendario
-				//calendario();
-				break;
-			case 3:
-				//Quitar este comentario cuando se implemente el codigo en nuevoResultado
-				//nuevoResultado();
-				break;
-			case 4:
-				System.out.println("Hasta la proxima.");;
-				break;				
-			default:
-				System.out.println("Opcion incorrecta, introduzca opcion valida.");			
-			}				
-		}		
+				case 1:
+					//Quitar este comentario cuando se implemente el codigo en clasificacion
+					//clasificacion();
+					break;
+				case 2:
+					//Quitar este comentario cuando se implemente el codigo en calendario
+					//calendario();
+					break;
+				case 3:
+					//Quitar este comentario cuando se implemente el codigo en nuevoResultado
+					//nuevoResultado();
+					break;
+				case 4:
+					System.out.println("Hasta la proxima.");;
+					break;
+				default:
+					System.out.println("Opcion incorrecta, introduzca opcion valida.");
+			}
+		}
 	}
-	
+
 	public static void imprimirMenu() {
 		System.out.println("***************************************");
 		System.out.println("*********** Menú Principal ************");
@@ -63,9 +70,9 @@ public class Principal {
 		System.out.println("*3.- Introducir nuevos resultados     *");
 		System.out.println("*4.- Salir de la aplicacion           *");
 		System.out.println("***************************************");
-		System.out.println("Introduzca una opción: ");			
+		System.out.println("Introduzca una opción: ");
 	}
-	
+
 	public static int leerEntrada() {
 		Scanner sc = new Scanner(System.in);
 		int numero = sc.nextInt();
@@ -81,10 +88,10 @@ public class Principal {
 				"Amunike","N'kono","Butragueño","Sanchís","Neymar","Batistuta","Maradona",
 				"Pelé","Beckenbauer"};
 		String[] posiciones = {"Portero/a","Defensa","Centrocampista","Delantero/a"};
-		
+
 		//Estructura de Array de Jugadores
 		Jugador[] jugadores = new Jugador[numeroJugadores];
-		
+
 		for (int i=0; i<numeroJugadores; i++) {
 			//Crear un Jugador
 			Jugador jug = new Jugador();
@@ -110,35 +117,35 @@ public class Principal {
 
 			//Dorsal
 			jug.setDorsal(i+1);
-			
+
 			//Equipo
 			jug.setEquipo(equipo);
 
 			jugadores[i]=jug;
 
 		}
-		
+
 		return jugadores;
 	}
 
 	private static Equipo[] crearEquipos(int numeroEquipos,int edad) {
-		
+
 		String [] nombreBarrios = {"El Candado", "Huelin", "Tiro Pichón", "Rincón de la Victoria", "La Rosaleda", "Torremolinos",
 				"Velez Málaga","Cerrado de Calderon", "El Puerto de la Torre", "Bresca", "Mezquitilla", "Teatinos", "Motril",
 				"Centro","Santa Paula", "El Palo", "Los Corazones", "Las Delicias", "Recogidas","Nueva Málaga", "Casas Blancas",
 				"La Palmilla","Los Asperones","Campanillas","La Corta"};
 		String [] mascotas = {"Los Pollos", "Los Araclanes", "Los Limones", "Los Delfines", "Los Chanquetes", "Los Gatitos",
-								"Los Boquerones", "Los Toros", "Los Perritos", "Los Halcones", "Los Ornitorrincos", "Los Caracoles",
-								"Los Palomos Cojos", "Los Heterosaurios", "Las Tortugas Ninjas", "Los Pintarrojas"};
+				"Los Boquerones", "Los Toros", "Los Perritos", "Los Halcones", "Los Ornitorrincos", "Los Caracoles",
+				"Los Palomos Cojos", "Los Heterosaurios", "Las Tortugas Ninjas", "Los Pintarrojas"};
 
 		Equipo [] listaEquipos= new Equipo[numeroEquipos];
-		
+
 		for (int i=0; i<numeroEquipos; i++) {
 			//Creamos Equipo
 			Equipo equipo = new Equipo();
 
 
-			
+
 			//Elegimos random un nombre y una mascota de las listas respectivas.
 			int numero = (int) Math.floor(Math.random()*nombreBarrios.length);
 			String barrio= nombreBarrios[numero];
@@ -147,7 +154,7 @@ public class Principal {
 
 			//Definimos el club en base al nombre del barrio
 			equipo.setClub(barrio+" F.C.");
-			
+
 			//Las pegamos con un "de" en medio
 			String nombre;
 			if (barrio.startsWith("El ")) {
@@ -156,24 +163,24 @@ public class Principal {
 			}else {
 				nombre = mascota + " de "+ barrio;
 			}
-			
+
 			equipo.setNombre(nombre);
 			//Continuamos con entrenador
 			Entrenador entrenador = crearEntrenador(equipo);
 			equipo.setEntrenador(entrenador);
-			
+
 			//Meter los jugadores
 			int numeroJugadores=(int) Math.floor(Math.random()*7)+15;
 			Jugador[] jugadores = crearJugadores(numeroJugadores,edad,equipo);
 			equipo.setJugadores(jugadores);
-			
+
 			//Meter el equipo en el array de equipos
-			
+
 			listaEquipos[i]=equipo;
-		
+
 		}
 		return listaEquipos;
-		
+
 	}
 
 	private static Entrenador crearEntrenador(Equipo equipo) {
@@ -185,7 +192,7 @@ public class Principal {
 				"Amunike","N'kono","Butragueño","Sanchís","Neymar","Batistuta","Maradona",
 				"Pelé","Beckenbauer"};
 		Entrenador entrenador = new Entrenador();
-		
+
 		//Nombre
 		int numero = (int) Math.floor(Math.random()*nombres.length);
 		String nombre = nombres[numero];
@@ -197,36 +204,66 @@ public class Principal {
 		numero = (int) Math.floor(Math.random()*apellidos.length);
 		String apellido2 = apellidos[numero];
 		entrenador.setApellidos(apellido1+" "+apellido2);
-		
+
 		//Equipo
 		entrenador.setEquipo(equipo);
-		
+
 		//Edad
 		int edad = (int) Math.floor(Math.random()*47)+18;
 		entrenador.setEdad(edad);
 		//Licencia
 		int licencia = (int) Math.floor(Math.random()*100000);
 		entrenador.setNumeroLicencia(licencia);
-		
+
 		return entrenador;
+	}
+
+	private static Partido[] generarPartidos(int numeroJornadas, int numeroEquipos){
+
+		//Genera el NÚMERO TOTAL de partidos que se juegan en la liga
+		int partidosJornada; //Guarda el número de partidos de cada jornada
+
+		if (numeroEquipos%2==0){
+			partidosJornada = numeroEquipos/2;
+		}else{
+			partidosJornada = (numeroEquipos-1)/2;
+		}
+
+		int numeroPartidos = numeroJornadas * partidosJornada;
+
+		//Genera los partidos y los guarda en el Array listaPartidos[]
+		Partido[] listaPartidos= new Partido[numeroPartidos];
+
+		for (int i=0; i<numeroPartidos; i++){
+
+			Partido partido = new Partido();
+
+
+			partido.golesLocal();
+			partido.golesVisitane();
+
+			listaPartidos[i] = partido;
+		}
+
+		return listaPartidos;
 	}
 
 	//private static  Clasificacion[] crearClasificacion(){
 
-		//Equipo [] listaEquipos= new Equipo[numeroEquipos];
+	//Equipo [] listaEquipos= new Equipo[numeroEquipos];
 
-		//for (int i=0; i<numeroEquipos; i++) {
-			//Creamos Equipo
-			//Equipo equipo = new Equipo();
-	
+	//for (int i=0; i<numeroEquipos; i++) {
+	//Creamos Equipo
+	//Equipo equipo = new Equipo();
+
 	private static void clasificacion(int opcion) {
 		//Metodo para mostrar la clasificacion
 	}
-	
+
 	private static void calendario(int opcion) {
 		//Metodo para mostrar el calendario
 	}
-	
+
 	private static void nuevoResultado(int opcion) {
 		//Metodo para introducir nuevos resultados
 	}
