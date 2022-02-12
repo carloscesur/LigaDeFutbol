@@ -6,6 +6,7 @@ public class Principal {
 		//CREAR UNA LISTA DE EQUIPOS
 		int edad = (int) Math.floor(Math.random()*15)+4;
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
+		int numeroArbitros= (numeroEquipos/2)+1;//Uno por partido mas uno de reserva
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
 
 		//CREAMOS LA LIGA
@@ -23,6 +24,18 @@ public class Principal {
 		for (Equipo e: listaEquipos) {
 			System.out.println(e.getNombre());
 		}*/
+		
+		//Imprimimos los arbitros
+		System.out.println("\nNumero de arbitros: "+numeroArbitros);
+		Arbitro[] listaArbitros= new Arbitro[numeroArbitros];
+		for (Arbitro a: listaArbitros) {
+			a=crearArbitro();
+			System.out.println(a.getNombre()+" "+a.getApellidos());
+		}
+		
+		//Hacer el llamamiento a la clase Menu.
+		Menu menu = new Menu();
+		menu.mostrarMenu();
 
 	}
 
@@ -167,13 +180,13 @@ public class Principal {
 
 	private static Arbitro crearArbitro() {
 		//Listado de Nombres, Apellidos, Posiciones para generador random
-		String[] nombres = {"Antonio", "Pepito", "Alejandra", "Ismael", "Hugo", "Oliver","Kalesi",
-				"Ingrid","Astrid","Indira","Jenny","Jessi","Vane","Joel","Bruno",
-				"Sasha","Billie","Masha","Pingu"};
-		String[] apellidos = {"Messi", "Vinicius", "Cristiano", "Ronaldo", "PiquÃ©","Bale (lesionado)",
-				"Amunike","N'kono","ButragueÃ±o","Sanchis","Neymar","Batistuta","Maradona",
-				"PelÃ©","Beckenbauer"};
-		
+		String[] nombres = {"Antonio", "Javier", "Alejandra", "Ismael", "Hugo", "Oliver","Adrian",
+				"Ingrid","Eduardo","Joaquin","Manuel","Juan","Antonio Jesus","Joel","Bruno",
+				"Miguel Angel","Carlos","Ricardo","Guillermo"};
+		String[] apellidos = {"Iturralde", "Gonzalez", "Ramos", "Marcos", "Lopez","Nieto",
+				"Diaz","Vega","Andujar","Oliver","Figueroa","Vazquez","Gil",
+				"Manzano","Ortiz"};
+
 		Arbitro arbitro = new Arbitro();
 
 		//Nombre
