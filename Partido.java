@@ -1,10 +1,8 @@
 public class Partido {
 
     //ATRIBUTOS
-    private int numeroPartido;
-    private String equipoLocal;
-    private String equipoVisitante;
-    private String equipoDescansando;
+    private Equipo equipoLocal;
+    private Equipo equipoVisitante;
     private int golesLocal;
     private int golesVisitante;
 
@@ -19,17 +17,11 @@ public class Partido {
     }
 
     //Setters
-    public void setNumeroPartido(int numeroPartido) {
-        this.numeroPartido = numeroPartido;
-    }
-    public void setEquipoLocal(String equipoLocal) {
+    public void setEquipoLocal(Equipo equipoLocal) {
         this.equipoLocal = equipoLocal;
     }
-    public void setEquipoVisitante(String equipoVisitante) {
+    public void setEquipoVisitante(Equipo equipoVisitante) {
         this.equipoVisitante = equipoVisitante;
-    }
-    public void setEquipoDescansando(String equipoDescansando) {
-        this.equipoDescansando = equipoDescansando;
     }
     public void setGolesLocal(int golesLocal) {
         this.golesLocal = golesLocal;
@@ -39,17 +31,11 @@ public class Partido {
     }
 
     //Getters
-    public int getNumeroPartido() {
-        return numeroPartido;
-    }
-    public String getEquipoLocal() {
+    public Equipo getEquipoLocal() {
         return equipoLocal;
     }
-    public String getEquipoVisitante() {
+    public Equipo getEquipoVisitante() {
         return equipoVisitante;
-    }
-    public String getEquipoDescansando() {
-        return equipoDescansando;
     }
     public int getGolesLocal() {
         return golesLocal;

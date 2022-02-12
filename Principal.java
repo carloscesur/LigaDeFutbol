@@ -1,83 +1,29 @@
-import java.util.Scanner;
-
 public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//Crear una Lista de Equipo
+		//CREAR UNA LISTA DE EQUIPOS
 		int edad = (int) Math.floor(Math.random()*15)+4;
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
-		int numeroArbitros= (numeroEquipos/2)+1;//Uno por partido más uno de reserva
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
 
-		//Numero de Jornadas (Solo ida por ahora)
-		int numeroJornadas;
+		//CREAMOS LA LIGA
+		Liga liga = new Liga(listaEquipos);
 
-		if (numeroEquipos%2==0){
-			numeroJornadas = numeroEquipos - 1;
-		}else{
-			numeroJornadas = numeroEquipos;
-		}
+		//IMPORTANTE, AHORA MISMO SOLO CREA LA IDA
+		//SE ARREGLA EN CALENDARIO
+		//TAMBIÉN SE CREAN GOLES ALEATORIOS EN PARTIDO, Y DEBE SER EN EL MAIN
+		//emparejamiento(listaEquipos);
 
-		//Crear lista de todos los partidos
-		Partido[] listaPartidos = generarPartidos(numeroJornadas, numeroEquipos);
 
+		/*
 		//Imprimimos los equipos
 		System.out.println("Numero de equipos: "+numeroEquipos);
 		for (Equipo e: listaEquipos) {
 			System.out.println(e.getNombre());
-		}
+		}*/
 
-		//Imprimir partidos
-		for (Partido e: listaPartidos){
-			System.out.println(e.getGolesLocal()+" goles del equipo Local y "+e.getGolesVisitante()+" goles del quipo visitante.");
-		}
-
-		//Menu de opciones disponibles
-		int opcion=1;
-		while (opcion != 4) {
-
-			imprimirMenu ();
-
-			opcion= leerEntrada();
-			switch(opcion) {
-				case 1:
-					//Quitar este comentario cuando se implemente el codigo en clasificacion
-					//clasificacion();
-					break;
-				case 2:
-					//Quitar este comentario cuando se implemente el codigo en calendario
-					//calendario();
-					break;
-				case 3:
-					//Quitar este comentario cuando se implemente el codigo en nuevoResultado
-					//nuevoResultado();
-					break;
-				case 4:
-					System.out.println("Hasta la proxima.");;
-					break;
-				default:
-					System.out.println("Opcion incorrecta, introduzca opcion valida.");
-			}
-		}
-	}
-
-	public static void imprimirMenu() {
-		System.out.println("***************************************");
-		System.out.println("*********** Menú Principal ************");
-		System.out.println("*1.- Ver la clasificación actual      *");
-		System.out.println("*2.- Ver el calendario                *");
-		System.out.println("*3.- Introducir nuevos resultados     *");
-		System.out.println("*4.- Salir de la aplicacion           *");
-		System.out.println("***************************************");
-		System.out.println("Introduzca una opción: ");
-	}
-
-	public static int leerEntrada() {
-		Scanner sc = new Scanner(System.in);
-		int numero = sc.nextInt();
-		return numero;
 	}
 
 	private static Jugador[] crearJugadores(int numeroJugadores, int edad, Equipo equipo) {
@@ -218,8 +164,8 @@ public class Principal {
 
 		return entrenador;
 	}
-	
-		private static Arbitro crearArbitro() {
+
+	private static Arbitro crearArbitro() {
 		//Listado de Nombres, Apellidos, Posiciones para generador random
 		String[] nombres = {"Antonio", "Pepito", "Alejandra", "Ismael", "Hugo", "Oliver","Kalesi",
 				"Ingrid","Astrid","Indira","Jenny","Jessi","Vane","Joel","Bruno",
@@ -251,54 +197,96 @@ public class Principal {
 
 		return arbitro;
 	}
+	
+	private static void emparejamiento(Equipo[] listaEquipos){
 
-	private static Partido[] generarPartidos(int numeroJornadas, int numeroEquipos){
+		Equipo[] emparejamiento1;
+		Equipo[] emparejamiento2;
 
-		//Genera el NÚMERO TOTAL de partidos que se juegan en la liga
-		int partidosJornada; //Guarda el número de partidos de cada jornada
+		System.out.println(listaEquipos.length);
 
-		if (numeroEquipos%2==0){
-			partidosJornada = numeroEquipos/2;
+		if(listaEquipos.length%2==0){
+			emparejamiento1 = new Equipo[listaEquipos.length];
+			emparejamiento2 = new Equipo[listaEquipos.length];
 		}else{
-			partidosJornada = (numeroEquipos-1)/2;
+			emparejamiento1 = new Equipo[listaEquipos.length+1];
+			emparejamiento2 = new Equipo[listaEquipos.length+1];
 		}
 
-		int numeroPartidos = numeroJornadas * partidosJornada;
+		//PRIMERA JORNADA
+		System.out.println("JORNADA 1");
+		for (int i=0; i< emparejamiento1.length; i++){
 
-		//Genera los partidos y los guarda en el Array listaPartidos[]
-		Partido[] listaPartidos= new Partido[numeroPartidos];
+			try{
+				emparejamiento1[i] = listaEquipos[i];
+			}catch (Exception e){
 
-		for (int i=0; i<numeroPartidos; i++){
+			}
+			try{
+				System.out.println(emparejamiento1[i].getNombre());
+			}catch (Exception e){
+				System.out.println("Null");
+			}
+		}
+		System.out.println();
 
-			Partido partido = new Partido();
+		//SIGUIENTES JORNADAS
+		for (int j=0; j<(emparejamiento1.length-2); j++){
 
+			//JORNADAS PARES
+			System.out.println("JORNADA "+(j+2));
+			if(j%2==0){
+				for (int i=0; i< emparejamiento1.length; i++){
 
-			partido.golesLocal();
-			partido.golesVisitane();
+					if(i%2==0){
+						emparejamiento2[i] = emparejamiento1[i];
+						//System.out.println("Soy impar");
+					}else if (i%2!=0 && i!=(emparejamiento1.length-1)){
+						emparejamiento2[i+2] = emparejamiento1[i];
+						//System.out.println("Soy par");
+					}else{
+						emparejamiento2[1] = emparejamiento1[i];
+						//System.out.println("Soy el ultimo");
+					}
+				}
+				for(int i=0; i< emparejamiento1.length; i++){
+					try{
+						System.out.println(emparejamiento2[i].getNombre());
+					}catch (Exception e){
+						System.out.println("Null");
+					}
+				}
 
-			listaPartidos[i] = partido;
+			//JORNADAS IMPARES
+			}else{
+				for (int i=0; i< emparejamiento1.length; i++){
+					if(i==0){
+						emparejamiento1[1] = emparejamiento2[i];
+						//System.out.println("Soy el primero");
+					}else if(i==1){
+						emparejamiento1[emparejamiento1.length-1] = emparejamiento2[i];
+						//System.out.println("Soy el segundo");
+					}else if(i==(emparejamiento1.length-1)){
+						emparejamiento1[i-1] = emparejamiento2[i];
+						//System.out.println("Soy el ultimo");
+					}else if(i%2==0){
+						emparejamiento1[i-2] = emparejamiento2[i];
+						//System.out.println("Soy impar");
+					}else{
+						emparejamiento1[i] = emparejamiento2[i];
+						//System.out.println("Soy par");
+					}
+				}
+				for(int i=0; i< emparejamiento1.length; i++){
+					try{
+						System.out.println(emparejamiento1[i].getNombre());
+					}catch (Exception e){
+						System.out.println("Null");
+					}
+				}
+			}
+			System.out.println();
 		}
 
-		return listaPartidos;
-	}
-
-	//private static  Clasificacion[] crearClasificacion(){
-
-	//Equipo [] listaEquipos= new Equipo[numeroEquipos];
-
-	//for (int i=0; i<numeroEquipos; i++) {
-	//Creamos Equipo
-	//Equipo equipo = new Equipo();
-
-	private static void clasificacion(int opcion) {
-		//Metodo para mostrar la clasificacion
-	}
-
-	private static void calendario(int opcion) {
-		//Metodo para mostrar el calendario
-	}
-
-	private static void nuevoResultado(int opcion) {
-		//Metodo para introducir nuevos resultados
 	}
 }
