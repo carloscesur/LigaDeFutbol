@@ -10,7 +10,7 @@ public class Menu {
 
 			imprimirMenu ();
 
-			opcion= leerEntrada();
+			opcion = leerEntrada();
 			switch(opcion) {
 			case 1:
 				//Quitar este comentario cuando se implemente el codigo en clasificacion
@@ -25,7 +25,7 @@ public class Menu {
 				//nuevoResultado();
 				break;
 			case 4:
-				System.out.println("Hasta la proxima.");;
+				System.out.println("Hasta la proxima.");
 				break;				
 			default:
 				System.out.println("Opcion incorrecta, introduzca opcion valida.");			
@@ -34,14 +34,14 @@ public class Menu {
 	}
 	
 	public static void imprimirMenu() {
-		System.out.println("\n***************************************");
-		System.out.println("*********** Menú Principal ************");
-		System.out.println("1.- Ver la clasificación actual *******");
-		System.out.println("2.- Ver el calendario *****************");
-		System.out.println("3.- Introducir nuevos resultados ******");
-		System.out.println("4.- Salir de la aplicacion ************");
 		System.out.println("***************************************");
-		System.out.println("Introduzca una opción: ");			
+		System.out.println("*********** MenÃº Principal ************");
+		System.out.println("* 1.- Ver la clasificaciÃ³n actual     *");
+		System.out.println("* 2.- Ver el calendario               *");
+		System.out.println("* 3.- Introducir nuevos resultados    *");
+		System.out.println("* 4.- Salir de la aplicacion          *");
+		System.out.println("***************************************");
+		System.out.println("Introduzca una opciÃ³n: ");			
 	}
 	
 	public static int leerEntrada() {
