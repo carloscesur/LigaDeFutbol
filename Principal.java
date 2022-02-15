@@ -1,4 +1,4 @@
-import java.sql.ClientInfoStatus;
+import java.util.Scanner;
 
 public class Principal {
 
@@ -16,14 +16,12 @@ public class Principal {
 		//Creamos la LIGA
 		Liga liga = new Liga(listaEquipos, listaArbitros);
 
-		/*
+
 		//Hacer el llamamiento a la clase Menu.
-		Menu menu = new Menu();
+		Menu menu = new Menu(liga);
 		menu.mostrarMenu();
-		*/
 
 	}
-
 
 	private static Jugador[] crearJugadores(int numeroJugadores, int edad, Equipo equipo) {
 		//Listado de Nombres, Apellidos, Posiciones para generador random
@@ -137,6 +135,7 @@ public class Principal {
 		String[] apellidos = {"Messi", "Vinicius", "Cristiano", "Ronaldo", "Piqué","Bale (lesionado)",
 				"Amunike","N'kono","Butragueño","Sanchís","Neymar","Batistuta","Maradona",
 				"Pelé","Beckenbauer"};
+
 		Entrenador entrenador = new Entrenador();
 
 		//Nombre
