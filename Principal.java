@@ -16,10 +16,6 @@ public class Principal {
 		//Creamos la LIGA
 		Liga liga = new Liga(listaEquipos, listaArbitros);
 
-		//IMPORTANTE, AHORA MISMO SOLO CREA LA IDA
-		//SE ARREGLA EN CALENDARIO
-		//TAMBIÉN SE CREAN GOLES ALEATORIOS EN PARTIDO, Y DEBE SER EN EL MAIN
-
 		/*
 		//Hacer el llamamiento a la clase Menu.
 		Menu menu = new Menu();

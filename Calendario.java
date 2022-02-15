@@ -20,7 +20,11 @@ public class Calendario {
 
     //METODOS
 
-    //Empareja los equipos
+    /**
+     * Este metodo empareja los equipos en cada jornada.
+     * @param listaEquipos Parametro de entrada el Array con los equipos
+     * @return Retorna un Array de todas las Jornadas
+     */
     private static Jornada[] emparejamiento(Equipo[] listaEquipos){
 
         //El array de jornadas y
@@ -31,13 +35,11 @@ public class Calendario {
 
         //Condicionamos las dimensiones de los arreglos dependiendo de si la lista de equipos es par o impar.
         if(listaEquipos.length%2==0){
-            //jornadas = new Jornada[(listaEquipos.length-1)*2];
-            jornadas = new Jornada[(listaEquipos.length-1)];
+            jornadas = new Jornada[(listaEquipos.length-1)*2];
             emparejamiento1 = new Equipo[listaEquipos.length];
             emparejamiento2 = new Equipo[listaEquipos.length];
         }else{
-            //jornadas = new Jornada[(listaEquipos.length)*2];
-            jornadas = new Jornada[(listaEquipos.length)];
+            jornadas = new Jornada[(listaEquipos.length)*2];
             emparejamiento1 = new Equipo[listaEquipos.length+1];
             emparejamiento2 = new Equipo[listaEquipos.length+1];
         }
@@ -53,12 +55,18 @@ public class Calendario {
             }
         }
 
+        /*Esta variable sale de la siguiente cuenta.
+        Longitud de emparejamientos por dos (ya que es ida y vuelta),
+        -2 porque en la ida y en la vuelta no juegas contigo mismo
+        y -1 para quitar el for de la jornada uno*/
+        int longitudLiga = (emparejamiento1.length*2)-3;
+
         //Metemos la primera Jornada en el primer indice del Array
         Jornada jornada1 = new Jornada(emparejamiento1);
         jornadas[0] = jornada1;
 
         //SIGUIENTES JORNADAS
-        for (int j=0; j<(emparejamiento1.length-2); j++){
+        for (int j=0; j<(longitudLiga); j++){
 
             //JORNADAS PARES
             if(j%2==0) {
