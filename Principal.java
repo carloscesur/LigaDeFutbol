@@ -8,6 +8,7 @@ public class Principal {
 		int numeroEquipos = (int) Math.floor(Math.random()*13)+4;
 		int numeroArbitros= (numeroEquipos/2)+1;//Uno por partido mas uno de reserva
 		Equipo[] listaEquipos = crearEquipos(numeroEquipos, edad);
+		Arbitro[] listaArbitros = crearArbitro(numeroEquipos);
 
 		//CREAMOS LA LIGA
 		Liga liga = new Liga(listaEquipos);
@@ -27,9 +28,8 @@ public class Principal {
 		
 		//Imprimimos los arbitros
 		System.out.println("\nNumero de arbitros: "+numeroArbitros);
-		Arbitro[] listaArbitros= new Arbitro[numeroArbitros];
+		
 		for (Arbitro a: listaArbitros) {
-			a=crearArbitro();
 			System.out.println(a.getNombre()+" "+a.getApellidos());
 		}
 		
@@ -178,7 +178,7 @@ public class Principal {
 		return entrenador;
 	}
 
-	private static Arbitro crearArbitro() {
+	private static Arbitro[] crearArbitro(int numeroEquipos) {
 		//Listado de Nombres, Apellidos, Posiciones para generador random
 		String[] nombres = {"Antonio", "Javier", "Alejandra", "Ismael", "Hugo", "Oliver","Adrian",
 				"Ingrid","Eduardo","Joaquin","Manuel","Juan","Antonio Jesus","Joel","Bruno",
@@ -187,27 +187,36 @@ public class Principal {
 				"Diaz","Vega","Andujar","Oliver","Figueroa","Vazquez","Gil",
 				"Manzano","Ortiz"};
 
-		Arbitro arbitro = new Arbitro();
+		Arbitro[] listaArbitros= new Arbitro[(numeroEquipos/2)+1];
 
-		//Nombre
-		int numero = (int) Math.floor(Math.random()*nombres.length);
-		String nombre = nombres[numero];
-		arbitro.setNombre(nombre);
+		for (int i=0; i<(numeroEquipos/2)+1; i++) {
 
-		//Apellidos
-		numero = (int) Math.floor(Math.random()*apellidos.length);
-		String apellido1 = apellidos[numero];
-		numero = (int) Math.floor(Math.random()*apellidos.length);
-		String apellido2 = apellidos[numero];
-		arbitro.setApellidos(apellido1+" "+apellido2);		
+			//Creamos Arbitro
+			Arbitro arbitro = new Arbitro();
 
-		//Edad
-		int edad = (int) Math.floor(Math.random()*47)+18;
-		arbitro.setEdad(edad);
-		//Licencia
-		int licencia = (int) Math.floor(Math.random()*100000);
-		arbitro.setLicencia(licencia);
+			//Nombre
+			int numero = (int) Math.floor(Math.random()*nombres.length);
+			String nombre = nombres[numero];
+			arbitro.setNombre(nombre);
 
-		return arbitro;
+			//Apellidos
+			numero = (int) Math.floor(Math.random()*apellidos.length);
+			String apellido1 = apellidos[numero];
+			numero = (int) Math.floor(Math.random()*apellidos.length);
+			String apellido2 = apellidos[numero];
+			arbitro.setApellidos(apellido1+" "+apellido2);		
+
+			//Edad
+			int edad = (int) Math.floor(Math.random()*47)+18;
+			arbitro.setEdad(edad);
+			//Licencia
+			int licencia = (int) Math.floor(Math.random()*100000);
+			arbitro.setLicencia(licencia);
+			
+			//Meter el arbitro en el array de arbitros
+			listaArbitros[i] = arbitro;
+		}
+
+		return listaArbitros;
 	}
 }
