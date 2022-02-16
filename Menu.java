@@ -32,6 +32,9 @@ public class Menu {
 				//nuevoResultado();
 				break;
 			case 4:
+				mostrarListaArbitros(liga);
+				break;
+			case 5:
 				System.out.println("Hasta la proxima.");
 				break;				
 			default:
@@ -46,9 +49,10 @@ public class Menu {
 		System.out.println("* 1.- Ver la clasificacion actual     *");
 		System.out.println("* 2.- Ver el calendario               *");
 		System.out.println("* 3.- Introducir nuevos resultados    *");
-		System.out.println("* 4.- Salir de la aplicacion          *");
+		System.out.println("* 4.- Mostrar la lista de arbitros    *");
+		System.out.println("* 5.- Salir de la aplicacion          *");
 		System.out.println("***************************************");
-		System.out.println("Introduzca una opcion: ");
+		System.out.print("Introduzca una opcion: ");
 	}
 	
 	public static int leerEntrada() {
@@ -95,5 +99,16 @@ public class Menu {
 	private static void nuevoResultado(int opcion) {
 		//Metodo para introducir nuevos resultados
 	}
+	
+	//Con este metodo se obtienen los datos de arbitro a traves de Liga
+	private static void mostrarListaArbitros(Liga liga) {
+		//Nos traemos el array de arbitros
+		Arbitro[] arbitros = liga.getArbitros();
 
+		for (int i=0; i< arbitros.length; i++){
+			
+			Arbitro arbitro = arbitros[i];
+			System.out.println("Arbitro "+(i+1)+": "+arbitro.getNombre()+" "+arbitro.getApellidos());
+		}
+	}
 }
