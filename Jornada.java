@@ -11,7 +11,7 @@ public class Jornada {
 
      private Partido[] generarPartidos(Equipo[] equiposEmparejados){
 
-          Partido[] partidos = new Partido[equiposEmparejados.length];
+          Partido[] partidos = new Partido[equiposEmparejados.length/2];
 
           int indeceArrayPartido =0 ;
 
