@@ -8,9 +8,13 @@ public class Liga {
 	private Clasificacion clasificacion;
 
 	//CONSTRUCTOR
-	public Liga(Equipo[] equipos){
+	public Liga(Equipo[] equipos, Arbitro[] arbitros){
+
+		this.nombre = "Liga Sin Nombre";
 		this.equipos = equipos;
+		this.arbitros = arbitros;
 		this.calendario = new Calendario(this.equipos);
+		this.clasificacion = new Clasificacion();
 	}
 
 	//SETTERS
