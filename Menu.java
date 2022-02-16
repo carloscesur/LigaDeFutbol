@@ -14,7 +14,7 @@ public class Menu {
 
 		//Menu de opciones disponibles
 		int opcion=1;
-		while (opcion != 4) {			
+		while (opcion != 5) {			
 
 			imprimirMenu ();
 
