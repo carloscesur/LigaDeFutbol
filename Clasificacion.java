@@ -3,7 +3,7 @@ public class Clasificacion {
     private EquipoClasificacion[] clasificacionEquipos; //Trae el array con los datos de cada equipo en la clasificación
     private int numeroClasificaion; //Número clasificación equipo
 
-
+ 
 
 
 
