@@ -1,3 +1,4 @@
+
 public class Arbitro extends Persona {
 	int licencia;
 
@@ -14,4 +15,6 @@ public class Arbitro extends Persona {
 		return "Arbitro [licencia=" + licencia + ", getNombre()=" + getNombre() + ", getApellidos()=" + getApellidos()
 				+ ", getEdad()=" + getEdad() + "]";
 	}
+	
+
 }
