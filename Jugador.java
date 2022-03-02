@@ -1,3 +1,4 @@
+
 public final class Jugador extends Persona{
 	private String categoria;
 	private String posicion;
@@ -18,16 +19,16 @@ public final class Jugador extends Persona{
 		switch(edad) {
 		case 4:
 		case 5:
-			return "Chupetín";
+			return "ChupetÃ­n";
 		case 6:
 		case 7:
-			return "Prebenjamín";
+			return "PrebenjamÃ­n";
 		case 8:
 		case 9:
-			return "Benjamín";
+			return "BenjamÃ­n";
 		case 10:
 		case 11:
-			return "Alevín";
+			return "AlevÃ­n";
 		case 12:
 		case 13:
 			return "Infantil";
@@ -69,6 +70,8 @@ public final class Jugador extends Persona{
 	public String toString() {
 		return super.toString()+", "+categoria+"\n"+
 				"Equipo: "+equipo.getNombre()+"\n"+
-				"Dorsal: "+dorsal+" Posición: "+posicion+"\n";
+				"Dorsal: "+dorsal+" PosiciÃ³n: "+posicion+"\n";
 	}
+
+	
 }
