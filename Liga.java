@@ -1,53 +1,47 @@
-public class Liga {
 
-	//ATRIBUTOS
+public class Liga {
+	
 	private String nombre;
 	private Equipo[] equipos;
 	private Calendario calendario;
 	private Arbitro[] arbitros;
 	private Clasificacion clasificacion;
+	
 
-	//CONSTRUCTOR
-	public Liga(Equipo[] equipos, Arbitro[] arbitros){
-
-		this.nombre = "Liga Sin Nombre";
-		this.equipos = equipos;
-		this.arbitros = arbitros;
-		this.calendario = new Calendario(this.equipos);
-		this.clasificacion = new Clasificacion();
+	public Liga (String nombre, Equipo[] equipos, Arbitro[] arbitros) {
+		this.nombre=nombre;
+		this.equipos=equipos;
+		this.arbitros=arbitros;
+		this.calendario=new Calendario(this.equipos,this.arbitros);
 	}
-
-	//SETTERS
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public void setEquipos(Equipo[] equipos) {
-		this.equipos = equipos;
-	}
-	public void setCalendario(Calendario calendario) {
-		this.calendario = calendario;
-	}
-	public void setArbitros(Arbitro[] arbitros) {
-		this.arbitros = arbitros;
-	}
-	public void setClasificacion(Clasificacion clasificacion) {
-		this.clasificacion = clasificacion;
-	}
-
-	//GETTERS
+	
 	public String getNombre() {
 		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	public Equipo[] getEquipos() {
 		return equipos;
 	}
+	public void setEquipos(Equipo[] equipos) {
+		this.equipos = equipos;
+	}
 	public Calendario getCalendario() {
 		return calendario;
 	}
+
 	public Arbitro[] getArbitros() {
 		return arbitros;
 	}
+	public void setArbitros(Arbitro[] arbitros) {
+		this.arbitros = arbitros;
+	}
 	public Clasificacion getClasificacion() {
+		this.clasificacion =  new Clasificacion(this.equipos,this.calendario);
 		return clasificacion;
 	}
+
+	
+	
 }
