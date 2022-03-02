@@ -1,46 +1,50 @@
+
 public class Partido {
+	
+	private Equipo local;
+	private Equipo visitante;
+	private int gLocal;
+	private int gVisitante;
+	private Arbitro arbitro;
+	
+	public Equipo getLocal() {
+		return local;
+	}
+	public void setLocal(Equipo local) {
+		this.local = local;
+	}
+	public Equipo getVisitante() {
+		return visitante;
+	}
+	public void setVisitante(Equipo visitante) {
+		this.visitante = visitante;
+	}
+	public int getgLocal() {
+		return gLocal;
+	}
+	public void setgLocal(int gLocal) {
+		this.gLocal = gLocal;
+	}
+	public int getgVisitante() {
+		return gVisitante;
+	}
+	public void setgVisitante(int gVisitante) {
+		this.gVisitante = gVisitante;
+	}
+	public Arbitro getArbitro() {
+		return arbitro;
+	}
+	public void setArbitro(Arbitro arbitro) {
+		this.arbitro = arbitro;
+	}
+	@Override
+	public String toString() {
+		return local.getNombre() + " "+gLocal+" : " 
+					+gVisitante+" "+ visitante.getNombre()
+					+", arbitro=" + arbitro.getApellidos() + "\n";
+	}
+	
+	
 
-    //ATRIBUTOS
-    private Equipo equipoLocal;
-    private Equipo equipoVisitante;
-    private int golesLocal;
-    private int golesVisitante;
-
-    //METODOS
-    public int golesLocal(){
-        this.golesLocal = (int) Math.floor(Math.random()*10);
-        return golesLocal;
-    }
-    public int golesVisitane(){
-        this.golesVisitante = (int) Math.floor(Math.random()*10);
-        return golesVisitante;
-    }
-
-    //Setters
-    public void setEquipoLocal(Equipo equipoLocal) {
-        this.equipoLocal = equipoLocal;
-    }
-    public void setEquipoVisitante(Equipo equipoVisitante) {
-        this.equipoVisitante = equipoVisitante;
-    }
-    public void setGolesLocal(int golesLocal) {
-        this.golesLocal = golesLocal;
-    }
-    public void setGolesVisitante(int golesVisitante) {
-        this.golesVisitante = golesVisitante;
-    }
-
-    //Getters
-    public Equipo getEquipoLocal() {
-        return equipoLocal;
-    }
-    public Equipo getEquipoVisitante() {
-        return equipoVisitante;
-    }
-    public int getGolesLocal() {
-        return golesLocal;
-    }
-    public int getGolesVisitante() {
-        return golesVisitante;
-    }
 }
+
